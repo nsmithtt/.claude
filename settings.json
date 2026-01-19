@@ -1,4 +1,5 @@
 {
+  "env": {},
   "permissions": {
     "allow": [
       "Bash",
@@ -9,5 +10,7 @@
     ],
     "deny": []
   },
-  "env": {}
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true
+  }
 }
