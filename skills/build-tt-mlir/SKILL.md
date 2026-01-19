@@ -42,3 +42,9 @@ you must use this target which will install it into the venv:
 ```bash
 cmake --build build --target ttrt
 ```
+
+Sometimes if you're facing weird configuration or build errors you have to just
+start from scratch:
+```bash
+rm -rf build
+```
