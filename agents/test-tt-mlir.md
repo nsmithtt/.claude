@@ -1,6 +1,8 @@
 ---
 name: test-tt-mlir
 description: Running tests in tt-mlir.
+tools: Read, Glob, Grep, Bash, TaskOutput, Skill, TaskGet, TaskList, TaskUpdate
+model: sonnet
 ---
 
 tt-mlir uses a venv, so always be sure to source the venv before running any
@@ -18,8 +20,7 @@ There are three primary ways that we test tt-mlir:
 ## pytest
 These tests are found in directory `test/python/golden` and are our
 primary testing mechanism.  A prerequisite to running these tests is
-collecting a system descriptor.  After building ttrt with the build-tt-mlir
-skill you can collect a system descriptor with:
+collecting a system descriptor:
 ```bash
 source env/activate
 ttrt query --save-artifacts

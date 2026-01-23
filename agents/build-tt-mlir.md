@@ -1,6 +1,8 @@
 ---
 name: build-tt-mlir
-description: Common ways of building tt-mlir including special targets.
+description: Building tt-mlir including special targets.
+tools: Read, Glob, Grep, Bash, TaskOutput, Skill, TaskGet, TaskList, TaskUpdate
+model: sonnet
 ---
 
 tt-mlir project is configured and built using cmake and generally follows cmake
