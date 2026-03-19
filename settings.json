@@ -10,6 +10,7 @@
     ],
     "deny": []
   },
+  "model": "opus[1m]",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   }

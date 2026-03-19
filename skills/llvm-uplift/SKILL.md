@@ -18,6 +18,8 @@ These scripts are located in a subdirectory of this skill.
 - `scripts/skip_phase1.sh`: Checks to see if we can skip phase 1.
 - `scripts/build_env.sh`: Builds the toolchain as part of phase 1.
 - `scripts/build_ttmlir.sh`: Builds the ttmlir project as part of phase 3.
+- `scripts/precommit_ttmlir.sh`: Runs precommit lint scripts, required before
+  commit.
 
 ## Plan
 
@@ -43,20 +45,21 @@ git rebase -X ours origin/main
 
 Build tt-mlir project using script `scripts/build_ttmlir.sh`, iteravely resolving all build errors. Do not refactor code unless absolutely necessary, try to keep changes mechanical and diffs minimal.
 
-### Phase 4. Cleanup and commit.
+### Phase 4. Cleanup and commit build fixes.
 
-Next run the precommit lint to reformat the code (it's OK if fails, that just
-means it reformatted some code):
-```bash
-export TTMLIR_TOOLCHAIN_DIR=/opt/ttmlir-toolchain-uplift
-source env/activate
-pre-commit run --all-files
-```
+Next run `scripts/precommit_ttmlir.sh` to reformat the code (it's OK if fails, that just
+means it reformatted some code).
 
 Git commit the changes to checkpoint our progress with a short commit message.
 ```bash
 git commit -am "llvm-uplift build fixes"
 ```
+
+### Phase 5. Fix test failures.
+
+Read @.claude/skills/ttmlir-fix-tests/SKILL.md and follow its process for fixing test
+failures.  Be sure to export this evironment variable before invoking any of the
+commands in that skill `export TTMLIR_TOOLCHAIN_DIR=/opt/ttmlir-toolchain-uplift`.
 
 ## Additional rules:
 - Update all deprecated apis, do not use -Wno-deprecated-declarations to avoid API deprecations.
