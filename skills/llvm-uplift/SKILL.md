@@ -45,6 +45,9 @@ git rebase -X ours origin/main
 
 Build tt-mlir project using script `scripts/build_ttmlir.sh`, iteravely resolving all build errors. Do not refactor code unless absolutely necessary, try to keep changes mechanical and diffs minimal.
 
+Please only use `scripts/build_ttmlir.sh` for building which mirrors the exact build
+configuration in CI.
+
 ### Phase 4. Cleanup and commit build fixes.
 
 Next run `scripts/precommit_ttmlir.sh` to reformat the code (it's OK if fails, that just
